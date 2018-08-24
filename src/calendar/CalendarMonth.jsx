@@ -177,9 +177,17 @@ const CalendarMonth = createClass({
   },
 
   renderHeader() {
+    const month = this.renderHeaderMonth();
+    const year = this.renderHeaderYear();
+    const reverseMonthYear = (
+      this.props.locale === 'zh-cn' ||
+      this.props.locale === 'ja' ||
+      this.props.locale === 'ko'
+    );
+
     return (
       <div className={this.cx({element: 'MonthHeader'})}>
-        {this.renderHeaderMonth()} {this.renderHeaderYear()}
+        {reverseMonthYear ? year : month} {reverseMonthYear ? month : year}
       </div>
     );
   },
