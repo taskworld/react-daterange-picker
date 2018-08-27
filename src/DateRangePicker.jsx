@@ -45,6 +45,8 @@ const DateRangePicker = createClass({
     initialRange: PropTypes.object,
     initialYear: PropTypes.number, // Overrides values derived from initialDate/initialRange
     locale: PropTypes.string,
+    monthFormat: PropTypes.string,
+    yearFormat: PropTypes.string,
     maximumDate: PropTypes.instanceOf(Date),
     minimumDate: PropTypes.instanceOf(Date),
     numberOfCalendars: PropTypes.number,
@@ -77,6 +79,8 @@ const DateRangePicker = createClass({
       initialDate: initialDate,
       initialFromValue: true,
       locale: moment().locale(),
+      monthFormat: 'MMMM',
+      yearFormat: 'YYYY',
       selectionType: 'range',
       singleDateRange: false,
       stateDefinitions: {
@@ -521,6 +525,8 @@ const DateRangePicker = createClass({
       dateRangesForDate: this.dateRangesForDate,
       dateComponent: CalendarDate,
       locale: this.props.locale,
+      monthFormat: this.props.monthFormat,
+      yearFormat: this.props.yearFormat,
     };
 
     return <CalendarMonth {...props} />;

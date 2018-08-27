@@ -28,6 +28,8 @@ const CalendarMonth = createClass({
     onYearChange: PropTypes.func,
     value: CustomPropTypes.momentOrMomentRange,
     locale: PropTypes.string,
+    monthFormat: PropTypes.string,
+    yearFormat: PropTypes.string,
   },
 
   setLocale(locale) {
@@ -135,7 +137,7 @@ const CalendarMonth = createClass({
     let modifiers = {year: true};
     return (
       <span className={this.cx({element: 'MonthHeaderLabel', modifiers})}>
-        {firstOfMonth.locale(this.props.locale).format('YYYY')}
+        {firstOfMonth.locale(this.props.locale).format(this.props.yearFormat)}
         {this.props.disableNavigation ? null : <select className={this.cx({element: 'MonthHeaderSelect'})} value={y} onChange={this.handleYearChange}>{choices.toJS()}</select>}
       </span>
     );
@@ -170,7 +172,7 @@ const CalendarMonth = createClass({
 
     return (
       <span className={this.cx({element: 'MonthHeaderLabel', modifiers})}>
-        {firstOfMonth.locale(this.props.locale).format('MMMM')}
+        {firstOfMonth.locale(this.props.locale).format(this.props.monthFormat)}
         {this.props.disableNavigation ? null : <select className={this.cx({element: 'MonthHeaderSelect'})} value={firstOfMonth.month()} onChange={this.handleMonthChange}>{choices.toJS()}</select>}
       </span>
     );
