@@ -125,7 +125,7 @@ const CalendarMonth = createClass({
     }
 
     return (
-      <option key={year} value={year}>{moment(year, 'YYYY').locale(this.props.locale).format('YYYY')}</option>
+      <option key={year} value={year}>{moment(year, 'YYYY').locale(this.props.locale).format(this.props.yearFormat)}</option>
     );
   },
 
