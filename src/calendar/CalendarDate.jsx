@@ -27,6 +27,7 @@ const CalendarDate = createClass({
     isSelectedRangeStart: PropTypes.bool,
     isSelectedRangeEnd: PropTypes.bool,
     isInSelectedRange: PropTypes.bool,
+    selectOnlyDateInSelectedRange: PropTypes.bool,
 
     isHighlightedDate: PropTypes.bool,
     isHighlightedRangeStart: PropTypes.bool,
@@ -144,9 +145,15 @@ const CalendarDate = createClass({
       isInHighlightedRange,
       isHighlightedDate: highlighted,
       isDisabled: disabled,
+      selectOnlyDateInSelectedRange,
     } = this.props;
 
-    let selected = isSelectedDate || isInSelectedRange || isInHighlightedRange;
+    let selected;
+    if (selectOnlyDateInSelectedRange) {
+      selected = isInSelectedRange;
+    } else {
+      selected = isSelectedDate || isInSelectedRange || isInHighlightedRange;
+    }
 
     return {disabled, highlighted, selected};
   },

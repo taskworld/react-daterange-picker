@@ -57,6 +57,7 @@ const DateRangePicker = createClass({
     paginationArrowComponent: PropTypes.func,
     selectedLabel: PropTypes.string,
     selectionType: PropTypes.oneOf(['single', 'range']),
+    selectOnlyDateInSelectedRange: PropTypes.bool,
     singleDateRange: PropTypes.bool,
     showLegend: PropTypes.bool,
     stateDefinitions: PropTypes.object,
@@ -94,6 +95,7 @@ const DateRangePicker = createClass({
       defaultState: '__default',
       dateStates: [],
       showLegend: false,
+      selectOnlyDateInSelectedRange: false,
       onSelect: noop,
       paginationArrowComponent: PaginationArrow,
     };
@@ -527,6 +529,7 @@ const DateRangePicker = createClass({
       locale: this.props.locale,
       monthFormat: this.props.monthFormat,
       yearFormat: this.props.yearFormat,
+      selectOnlyDateInSelectedRange: this.props.selectOnlyDateInSelectedRange,
     };
 
     return <CalendarMonth {...props} />;

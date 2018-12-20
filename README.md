@@ -84,6 +84,7 @@ Here is a working example:
 |paginationArrowComponent||PaginationArrow|Component|
 |selectedLabel||'Your selected dates'|String|
 |selectionType|| |String (`single` or `range`)|
+|selectOnlyDateInSelectedRange|Show selected state only dates in the selected range|false|Boolean|
 |singleDateRange||false|Boolean|
 |showLegend||false|Boolean|
 |stateDefinitions|| |Object|
