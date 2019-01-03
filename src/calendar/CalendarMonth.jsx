@@ -34,7 +34,8 @@ const CalendarMonth = createClass({
 
   setLocale(locale) {
     moment.locale(locale);
-    this.WEEKDAYS = Immutable.List(moment.weekdays()).zip(Immutable.List(moment.weekdaysShort()));
+    const weekdaysShortList = locale === 'th' ? moment.weekdaysMin() : moment.weekdaysShort();
+    this.WEEKDAYS = Immutable.List(moment.weekdays()).zip(Immutable.List(weekdaysShortList));
     this.MONTHS = Immutable.List(moment.months());
   },
 
